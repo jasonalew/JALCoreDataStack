@@ -51,15 +51,16 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         NSURL *storeURL = [directoryArray lastObject];
         storeURL = [storeURL URLByAppendingPathComponent:@"JALCoreDataStack.sqlite"];
         
+        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
+                                         NSInferMappingModelAutomaticallyOption: @YES};
         NSError *error = nil;
         NSPersistentStore *store = nil;
-        
-        store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
+        store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
         
         if (!store) {
             DLog(@"Error adding persistent store to coordinator %@", error
                                                                     .localizedDescription);
-        //TODO: present user facing error
+//TODO: present user facing error
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
