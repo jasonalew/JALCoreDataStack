@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JALLog.h"
 
 @interface AppDelegate ()
 
