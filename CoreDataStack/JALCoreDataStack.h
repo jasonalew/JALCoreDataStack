@@ -12,7 +12,6 @@ extern NSString *const kContextInitializedKey;
 
 @interface JALCoreDataStack : NSObject
 
-- (void)initializeCoreDataStack;
 - (void)saveContext:(BOOL)wait;
 
 @end

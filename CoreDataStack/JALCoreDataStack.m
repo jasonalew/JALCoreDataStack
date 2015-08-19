@@ -21,6 +21,17 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
 
 @implementation JALCoreDataStack
 
+- (instancetype)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    [self initializeCoreDataStack];
+
+    return self;
+}
+
 - (void)initializeCoreDataStack {
     NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"JALCoreDataStack" withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to find model URL");
@@ -33,13 +44,13 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
     
     // Make sure the NSManagedObjectContext is initialized before the
     // NSPersistentStore is added to the coordinator.
-    self.privateContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    self.privateContext.persistentStoreCoordinator = psc;
+    _privateContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    _privateContext.persistentStoreCoordinator = psc;
     
-    self.managedObjectContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
     // Instead of attaching and writing to the NSPersistentStoreCoordinator,
     // saves on the main context will be pushed to the private context.
-    self.managedObjectContext.parentContext = self.privateContext;
+    _managedObjectContext.parentContext = _privateContext;
     
     // Adding the NSPersistentStore to the NSPersistentStoreCoordinator
     // could take an unknown amount of time. Do this on a background queue
@@ -60,9 +71,9 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         if (!store) {
             DLog(@"Error adding persistent store to coordinator %@", error
                                                                     .localizedDescription);
-//TODO: present user facing error
+// TODO: present user facing error
         }
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
             // Let the UI know that the psc is ready
             [self contextInitialized];

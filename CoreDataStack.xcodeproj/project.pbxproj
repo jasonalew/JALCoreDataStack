@@ -14,7 +14,7 @@
 		5568E69D1B825E0300798D72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5568E69B1B825E0300798D72 /* LaunchScreen.xib */; };
 		5568E6A91B825E0400798D72 /* CoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6A81B825E0400798D72 /* CoreDataStackTests.m */; };
 		5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B31B825FD600798D72 /* JALCoreDataStack.m */; };
-		5568E6B71B82601800798D72 /* JALCoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B51B82601800798D72 /* JALCoreDataStack.xcdatamodeld */; };
+		5568E6B71B82601800798D72 /* CoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		5568E6A81B825E0400798D72 /* CoreDataStackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataStackTests.m; sourceTree = "<group>"; };
 		5568E6B21B825FD600798D72 /* JALCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALCoreDataStack.h; sourceTree = "<group>"; };
 		5568E6B31B825FD600798D72 /* JALCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALCoreDataStack.m; sourceTree = "<group>"; };
-		5568E6B61B82601800798D72 /* JALCoreDataStack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JALCoreDataStack.xcdatamodel; sourceTree = "<group>"; };
+		5568E6B61B82601800798D72 /* CoreDataStack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStack.xcdatamodel; sourceTree = "<group>"; };
 		5568E6B91B83CE6F00798D72 /* JALLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JALLog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				5568E68C1B825E0300798D72 /* Supporting Files */,
 				5568E6B21B825FD600798D72 /* JALCoreDataStack.h */,
 				5568E6B31B825FD600798D72 /* JALCoreDataStack.m */,
-				5568E6B51B82601800798D72 /* JALCoreDataStack.xcdatamodeld */,
+				5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5568E6921B825E0300798D72 /* AppDelegate.m in Sources */,
-				5568E6B71B82601800798D72 /* JALCoreDataStack.xcdatamodeld in Sources */,
+				5568E6B71B82601800798D72 /* CoreDataStack.xcdatamodeld in Sources */,
 				5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */,
 				5568E68F1B825E0300798D72 /* main.m in Sources */,
 			);
@@ -439,13 +439,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5568E6B51B82601800798D72 /* JALCoreDataStack.xcdatamodeld */ = {
+		5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5568E6B61B82601800798D72 /* JALCoreDataStack.xcdatamodel */,
+				5568E6B61B82601800798D72 /* CoreDataStack.xcdatamodel */,
 			);
-			currentVersion = 5568E6B61B82601800798D72 /* JALCoreDataStack.xcdatamodel */;
-			path = JALCoreDataStack.xcdatamodeld;
+			currentVersion = 5568E6B61B82601800798D72 /* CoreDataStack.xcdatamodel */;
+			path = CoreDataStack.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
