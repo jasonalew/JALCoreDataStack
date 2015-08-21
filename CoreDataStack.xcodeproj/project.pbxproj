@@ -15,6 +15,8 @@
 		5568E6A91B825E0400798D72 /* CoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6A81B825E0400798D72 /* CoreDataStackTests.m */; };
 		5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B31B825FD600798D72 /* JALCoreDataStack.m */; };
 		5568E6B71B82601800798D72 /* CoreDataStack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */; };
+		55AA560D1B87CE4600D9DEF8 /* JALTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */; };
+		55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		5568E6B31B825FD600798D72 /* JALCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALCoreDataStack.m; sourceTree = "<group>"; };
 		5568E6B61B82601800798D72 /* CoreDataStack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStack.xcdatamodel; sourceTree = "<group>"; };
 		5568E6B91B83CE6F00798D72 /* JALLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JALLog.h; sourceTree = "<group>"; };
+		55AA560B1B87CE4600D9DEF8 /* JALTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTableViewController.h; sourceTree = "<group>"; };
+		55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTableViewController.m; sourceTree = "<group>"; };
+		55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTableViewCell.h; sourceTree = "<group>"; };
+		55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,10 @@
 				5568E6901B825E0300798D72 /* AppDelegate.h */,
 				5568E6911B825E0300798D72 /* AppDelegate.m */,
 				5568E6961B825E0300798D72 /* Main.storyboard */,
+				55AA560B1B87CE4600D9DEF8 /* JALTableViewController.h */,
+				55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */,
+				55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */,
+				55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */,
 				5568E6991B825E0300798D72 /* Images.xcassets */,
 				5568E69B1B825E0300798D72 /* LaunchScreen.xib */,
 				5568E68C1B825E0300798D72 /* Supporting Files */,
@@ -226,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5568E6921B825E0300798D72 /* AppDelegate.m in Sources */,
+				55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */,
+				55AA560D1B87CE4600D9DEF8 /* JALTableViewController.m in Sources */,
 				5568E6B71B82601800798D72 /* CoreDataStack.xcdatamodeld in Sources */,
 				5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */,
 				5568E68F1B825E0300798D72 /* main.m in Sources */,
@@ -427,6 +439,7 @@
 				5568E6AE1B825E0400798D72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5568E6AF1B825E0400798D72 /* Build configuration list for PBXNativeTarget "CoreDataStackTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +448,7 @@
 				5568E6B11B825E0400798D72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
