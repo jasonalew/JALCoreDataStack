@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "JALLog.h"
+#import "JALCoreDataStack.h"
+#import "JALTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Create the Core Data stack
+    self.coreDataStack = [[JALCoreDataStack alloc]init];
+    
+    // Get the main tableVC and set its managed object context
+    UINavigationController *navVC = (UINavigationController *)self.window.rootViewController;
+    JALTableViewController *tableVC = (JALTableViewController *)navVC.topViewController;
+    tableVC.managedObjectContext = self.coreDataStack.managedObjectContext;
+    
     return YES;
 }
 
