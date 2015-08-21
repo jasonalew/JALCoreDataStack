@@ -8,13 +8,11 @@
 
 #import "JALCoreDataStack.h"
 #import "JALLog.h"
-@import CoreData;
 
 NSString *const kContextInitializedKey = @"contextInitializedKey";
 
 @interface JALCoreDataStack()
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectContext *privateContext;
 
 @end

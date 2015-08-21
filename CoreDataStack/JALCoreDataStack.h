@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreData;
 
 extern NSString *const kContextInitializedKey;
 
 @interface JALCoreDataStack : NSObject
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (void)saveContext:(BOOL)wait;
 
