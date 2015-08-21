@@ -9,7 +9,9 @@
 #import "JALTableViewController.h"
 #import "JALTableViewCell.h"
 
-@interface JALTableViewController ()
+@interface JALTableViewController ()<NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -36,13 +38,15 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return 1;
+    return [[self.fetchedResultsController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 0;
+    NSArray *sections = [self.fetchedResultsController sections];
+    id<NSFetchedResultsSectionInfo>sectionInfo = sections[section];
+    return [sectionInfo numberOfObjects];
 }
 
 /*
@@ -89,7 +93,36 @@
 }
 */
 
-/*
+#pragma mark - Fetched Results Controller
+
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    // Get the recipes and order by name
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+    
+    
+    fetchRequest.fetchBatchSize = 20;
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"type.name" ascending:YES];
+    NSSortDescriptor *nameSort = [[NSSortDescriptor alloc]initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptorArray = @[sort, nameSort];
+    fetchRequest.sortDescriptors = sortDescriptorArray;
+    
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type.name" cacheName:@"Master"];
+    _fetchedResultsController = frc;
+    _fetchedResultsController.delegate = self;
+    
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        DLog(@"Unresolved error %@\n%@", error.localizedDescription, error.userInfo);
+    }
+    return _fetchedResultsController;
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -97,6 +130,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
