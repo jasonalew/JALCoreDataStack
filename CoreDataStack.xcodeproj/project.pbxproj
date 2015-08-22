@@ -22,6 +22,11 @@
 		55AA56531B88E85D00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56521B88E85D00D9DEF8 /* RecipeImage.m */; };
 		55AA56561B88E85D00D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56551B88E85D00D9DEF8 /* Recipe.m */; };
 		55AA56591B88E85D00D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */; };
+		55AA565A1B891CB500D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */; };
+		55AA565B1B891CB900D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56551B88E85D00D9DEF8 /* Recipe.m */; };
+		55AA565C1B891CBC00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56521B88E85D00D9DEF8 /* RecipeImage.m */; };
+		55AA565D1B891CC000D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA564F1B88E85C00D9DEF8 /* Type.m */; };
+		55AA565E1B891CCA00D9DEF8 /* JALCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B31B825FD600798D72 /* JALCoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,7 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55AA565D1B891CC000D9DEF8 /* Type.m in Sources */,
+				55AA565E1B891CCA00D9DEF8 /* JALCoreDataStack.m in Sources */,
+				55AA565A1B891CB500D9DEF8 /* RecipeIngredient.m in Sources */,
+				55AA565B1B891CB900D9DEF8 /* Recipe.m in Sources */,
 				5568E6A91B825E0400798D72 /* CoreDataStackTests.m in Sources */,
+				55AA565C1B891CBC00D9DEF8 /* RecipeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

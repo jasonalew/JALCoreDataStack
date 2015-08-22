@@ -14,7 +14,9 @@ extern NSString *const kContextInitializedKey;
 @interface JALCoreDataStack : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *privateContext;
 
+- (instancetype)initWithInMemoryStore;
 - (void)saveContext:(BOOL)wait;
 
 @end

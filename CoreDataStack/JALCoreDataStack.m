@@ -13,8 +13,6 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
 
 @interface JALCoreDataStack()
 
-@property (nonatomic, strong) NSManagedObjectContext *privateContext;
-
 @end
 
 @implementation JALCoreDataStack
@@ -25,12 +23,23 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         return nil;
     }
     
-    [self initializeCoreDataStack];
+    [self initializeCoreDataStackWithStoreType:NSSQLiteStoreType];
 
     return self;
 }
 
-- (void)initializeCoreDataStack {
+- (instancetype)initWithInMemoryStore {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    [self initializeCoreDataStackWithStoreType:NSInMemoryStoreType];
+    
+    return self;
+}
+
+- (void)initializeCoreDataStackWithStoreType:(NSString *)storeType {
     NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"Recipes" withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to find model URL");
     
@@ -65,7 +74,7 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
                                          NSInferMappingModelAutomaticallyOption: @YES};
         NSError *error = nil;
         NSPersistentStore *store = nil;
-        store = [psc addPersistentStoreWithType:NSSQLiteStoreType
+        store = [psc addPersistentStoreWithType:storeType
                                   configuration:nil
                                             URL:storeURL
                                         options:options
