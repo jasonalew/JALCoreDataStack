@@ -18,15 +18,15 @@
 		55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */; };
 		55AA56221B87F73500D9DEF8 /* JALDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */; };
 		55AA564D1B88E67100D9DEF8 /* Recipes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55AA564B1B88E67100D9DEF8 /* Recipes.xcdatamodeld */; };
-		55AA56501B88E85C00D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA564F1B88E85C00D9DEF8 /* Type.m */; };
-		55AA56531B88E85D00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56521B88E85D00D9DEF8 /* RecipeImage.m */; };
-		55AA56561B88E85D00D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56551B88E85D00D9DEF8 /* Recipe.m */; };
-		55AA56591B88E85D00D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */; };
-		55AA565A1B891CB500D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */; };
-		55AA565B1B891CB900D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56551B88E85D00D9DEF8 /* Recipe.m */; };
-		55AA565C1B891CBC00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56521B88E85D00D9DEF8 /* RecipeImage.m */; };
-		55AA565D1B891CC000D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA564F1B88E85C00D9DEF8 /* Type.m */; };
 		55AA565E1B891CCA00D9DEF8 /* JALCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B31B825FD600798D72 /* JALCoreDataStack.m */; };
+		55AA56671B893E3F00D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56601B893E3F00D9DEF8 /* Recipe.m */; };
+		55AA56681B893E3F00D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56601B893E3F00D9DEF8 /* Recipe.m */; };
+		55AA56691B893E3F00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56621B893E3F00D9DEF8 /* RecipeImage.m */; };
+		55AA566A1B893E3F00D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56621B893E3F00D9DEF8 /* RecipeImage.m */; };
+		55AA566B1B893E3F00D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56641B893E3F00D9DEF8 /* RecipeIngredient.m */; };
+		55AA566C1B893E3F00D9DEF8 /* RecipeIngredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56641B893E3F00D9DEF8 /* RecipeIngredient.m */; };
+		55AA566D1B893E3F00D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56661B893E3F00D9DEF8 /* Type.m */; };
+		55AA566E1B893E3F00D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56661B893E3F00D9DEF8 /* Type.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,14 +61,14 @@
 		55AA56201B87F73500D9DEF8 /* JALDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALDetailViewController.h; sourceTree = "<group>"; };
 		55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALDetailViewController.m; sourceTree = "<group>"; };
 		55AA564C1B88E67100D9DEF8 /* Recipes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Recipes.xcdatamodel; sourceTree = "<group>"; };
-		55AA564E1B88E85C00D9DEF8 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = ../Type.h; sourceTree = "<group>"; };
-		55AA564F1B88E85C00D9DEF8 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Type.m; path = ../Type.m; sourceTree = "<group>"; };
-		55AA56511B88E85D00D9DEF8 /* RecipeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeImage.h; path = ../RecipeImage.h; sourceTree = "<group>"; };
-		55AA56521B88E85D00D9DEF8 /* RecipeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeImage.m; path = ../RecipeImage.m; sourceTree = "<group>"; };
-		55AA56541B88E85D00D9DEF8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipe.h; path = ../Recipe.h; sourceTree = "<group>"; };
-		55AA56551B88E85D00D9DEF8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = ../Recipe.m; sourceTree = "<group>"; };
-		55AA56571B88E85D00D9DEF8 /* RecipeIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeIngredient.h; path = ../RecipeIngredient.h; sourceTree = "<group>"; };
-		55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeIngredient.m; path = ../RecipeIngredient.m; sourceTree = "<group>"; };
+		55AA565F1B893E3F00D9DEF8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		55AA56601B893E3F00D9DEF8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		55AA56611B893E3F00D9DEF8 /* RecipeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeImage.h; sourceTree = "<group>"; };
+		55AA56621B893E3F00D9DEF8 /* RecipeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeImage.m; sourceTree = "<group>"; };
+		55AA56631B893E3F00D9DEF8 /* RecipeIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeIngredient.h; sourceTree = "<group>"; };
+		55AA56641B893E3F00D9DEF8 /* RecipeIngredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeIngredient.m; sourceTree = "<group>"; };
+		55AA56651B893E3F00D9DEF8 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		55AA56661B893E3F00D9DEF8 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,14 +153,14 @@
 		55AA561D1B87F01900D9DEF8 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				55AA56571B88E85D00D9DEF8 /* RecipeIngredient.h */,
-				55AA56581B88E85D00D9DEF8 /* RecipeIngredient.m */,
-				55AA56541B88E85D00D9DEF8 /* Recipe.h */,
-				55AA56551B88E85D00D9DEF8 /* Recipe.m */,
-				55AA56511B88E85D00D9DEF8 /* RecipeImage.h */,
-				55AA56521B88E85D00D9DEF8 /* RecipeImage.m */,
-				55AA564E1B88E85C00D9DEF8 /* Type.h */,
-				55AA564F1B88E85C00D9DEF8 /* Type.m */,
+				55AA565F1B893E3F00D9DEF8 /* Recipe.h */,
+				55AA56601B893E3F00D9DEF8 /* Recipe.m */,
+				55AA56611B893E3F00D9DEF8 /* RecipeImage.h */,
+				55AA56621B893E3F00D9DEF8 /* RecipeImage.m */,
+				55AA56631B893E3F00D9DEF8 /* RecipeIngredient.h */,
+				55AA56641B893E3F00D9DEF8 /* RecipeIngredient.m */,
+				55AA56651B893E3F00D9DEF8 /* Type.h */,
+				55AA56661B893E3F00D9DEF8 /* Type.m */,
 				55AA564B1B88E67100D9DEF8 /* Recipes.xcdatamodeld */,
 				5568E6B21B825FD600798D72 /* JALCoreDataStack.h */,
 				5568E6B31B825FD600798D72 /* JALCoreDataStack.m */,
@@ -289,17 +289,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55AA56561B88E85D00D9DEF8 /* Recipe.m in Sources */,
 				5568E6921B825E0300798D72 /* AppDelegate.m in Sources */,
+				55AA56691B893E3F00D9DEF8 /* RecipeImage.m in Sources */,
 				55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */,
 				55AA56221B87F73500D9DEF8 /* JALDetailViewController.m in Sources */,
+				55AA56671B893E3F00D9DEF8 /* Recipe.m in Sources */,
 				55AA560D1B87CE4600D9DEF8 /* JALTableViewController.m in Sources */,
-				55AA56501B88E85C00D9DEF8 /* Type.m in Sources */,
 				5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */,
-				55AA56531B88E85D00D9DEF8 /* RecipeImage.m in Sources */,
 				5568E68F1B825E0300798D72 /* main.m in Sources */,
-				55AA56591B88E85D00D9DEF8 /* RecipeIngredient.m in Sources */,
+				55AA566B1B893E3F00D9DEF8 /* RecipeIngredient.m in Sources */,
 				55AA564D1B88E67100D9DEF8 /* Recipes.xcdatamodeld in Sources */,
+				55AA566D1B893E3F00D9DEF8 /* Type.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,12 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55AA565D1B891CC000D9DEF8 /* Type.m in Sources */,
 				55AA565E1B891CCA00D9DEF8 /* JALCoreDataStack.m in Sources */,
-				55AA565A1B891CB500D9DEF8 /* RecipeIngredient.m in Sources */,
-				55AA565B1B891CB900D9DEF8 /* Recipe.m in Sources */,
+				55AA566E1B893E3F00D9DEF8 /* Type.m in Sources */,
+				55AA56681B893E3F00D9DEF8 /* Recipe.m in Sources */,
 				5568E6A91B825E0400798D72 /* CoreDataStackTests.m in Sources */,
-				55AA565C1B891CBC00D9DEF8 /* RecipeImage.m in Sources */,
+				55AA566C1B893E3F00D9DEF8 /* RecipeIngredient.m in Sources */,
+				55AA566A1B893E3F00D9DEF8 /* RecipeImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
