@@ -31,6 +31,8 @@
 
 @implementation JALDetailViewController
 
+// TODO: Add photo picker that will generate thumbnail and sized main image.
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -39,6 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.managedObjectID != nil) {
+        // The recipe already exists. Grab the values and update the UI.
         [self updateValues];
     }
 }
@@ -89,19 +92,15 @@
     self.recipe.name = self.nameTextField.text;
     self.recipe.desc = self.descriptionTextField.text;
     
+    // Get the ingredients from the set and update the values.
     NSArray *ingredientArray = [self.ingredients allObjects];
     ((RecipeIngredient *)ingredientArray[0]).name = self.ingredient1.text;
     ((RecipeIngredient *)ingredientArray[1]).name = self.ingredient2.text;
     self.ingredients = [NSSet setWithArray:ingredientArray];
-    
     [self.recipe addIngredients:self.ingredients];
     
-    
-    //    newType.name = self.typeTextField.text;
-    //    [newType addRecipesObject:newRecipe];
-    
     self.recipe.type.name = self.typeTextField.text;
-    DLog(@"Type: %@", self.type);
+
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     JALCoreDataStack *coreDataStack = appDelegate.coreDataStack;
     [coreDataStack saveContext:YES];

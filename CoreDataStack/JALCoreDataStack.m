@@ -83,7 +83,6 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         if (!store) {
             DLog(@"Error adding persistent store to coordinator %@", error
                                                                     .localizedDescription);
-// TODO: present user facing error
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{

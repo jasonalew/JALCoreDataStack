@@ -58,6 +58,7 @@
     return [sectionInfo numberOfObjects];
 }
 
+// TODO: Configure thumbnail image.
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     JALTableViewCell *cell = (JALTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
