@@ -2,7 +2,7 @@
 //  RecipeIngredient.h
 //  CoreDataStack
 //
-//  Created by Jason Lew on 8/21/15.
+//  Created by Jason Lew on 8/22/15.
 //  Copyright (c) 2015 Jason Lew. All rights reserved.
 //
 
@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * quantity;
 @property (nonatomic, retain) NSString * unitOfMeasure;
-@property (nonatomic, retain) Recipe *recipesIngredient;
+@property (nonatomic, retain) Recipe *recipe;
 
 @end

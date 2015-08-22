@@ -2,7 +2,7 @@
 //  RecipeImage.m
 //  CoreDataStack
 //
-//  Created by Jason Lew on 8/21/15.
+//  Created by Jason Lew on 8/22/15.
 //  Copyright (c) 2015 Jason Lew. All rights reserved.
 //
 
@@ -13,6 +13,6 @@
 @implementation RecipeImage
 
 @dynamic imageMain;
-@dynamic recipesImage;
+@dynamic recipe;
 
 @end

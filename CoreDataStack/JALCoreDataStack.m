@@ -31,7 +31,7 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
 }
 
 - (void)initializeCoreDataStack {
-    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"JALCoreDataStack" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"Recipes" withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to find model URL");
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
@@ -58,7 +58,7 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSArray *directoryArray = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
         NSURL *storeURL = [directoryArray lastObject];
-        storeURL = [storeURL URLByAppendingPathComponent:@"JALCoreDataStack.sqlite"];
+        storeURL = [storeURL URLByAppendingPathComponent:@"Recipes.sqlite"];
         
         NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
                                          NSInferMappingModelAutomaticallyOption: @YES};

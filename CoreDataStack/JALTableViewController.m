@@ -29,6 +29,11 @@
     DLog(@"Managed object context: %@", self.managedObjectContext);
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -66,7 +71,7 @@
     // Configure the cell...
     NSManagedObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.recipeName.text = [obj valueForKey:@"name"];
-    cell.recipeDescription.text = [obj valueForKey:@"description"];
+    cell.recipeDescription.text = [obj valueForKey:@"desc"];
     
     return cell;
 }
@@ -135,6 +140,58 @@
     return _fetchedResultsController;
 }
 
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView beginUpdates];
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    NSArray *newArray = [NSArray arrayWithObject:newIndexPath];
+    NSArray *oldArray = [NSArray arrayWithObject:indexPath];
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:newArray withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:oldArray withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+        {
+            NSManagedObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            JALTableViewCell *cell = (JALTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            cell.recipeName.text = [obj valueForKey:@"name"];
+            cell.recipeDescription.text = [obj valueForKey:@"description"];
+            break;
+        }
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:oldArray withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:newArray withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
+            break;
+    }
+}
+
+- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
+    return [NSString stringWithFormat:@"%@", sectionName];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+}
 
 #pragma mark - Navigation
 
@@ -145,7 +202,12 @@
     if ([segue.identifier isEqualToString:@"recipeDetailSegue"]) {
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             DLog(@"From cell");
+        } else {
+            JALDetailViewController *detailVC = segue.destinationViewController;
+            detailVC.managedObjectContext = self.managedObjectContext;
         }
+        
+        
     }
 }
 

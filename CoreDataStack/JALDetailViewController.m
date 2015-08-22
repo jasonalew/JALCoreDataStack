@@ -9,8 +9,11 @@
 #import "JALDetailViewController.h"
 #import "Recipe.h"
 #import "Type.h"
+#import "RecipeIngredient.h"
+#import "RecipeIngredient.h"
 #import "AppDelegate.h"
 #import "JALCoreDataStack.h"
+#import "JALLog.h"
 
 
 @interface JALDetailViewController ()<UITextFieldDelegate>
@@ -18,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *typeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UITextField *ingredient1;
+@property (weak, nonatomic) IBOutlet UITextField *ingredient2;
 
 @end
 
@@ -39,12 +44,21 @@
 }
 
 - (void)addRecipe {
-    Recipe *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:self.managedObjectContext];
+    Recipe *newRecipe = (Recipe *)[NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:self.managedObjectContext];
     newRecipe.name = self.nameTextField.text;
     newRecipe.desc = self.descriptionTextField.text;
+    RecipeIngredient *newIngredient1 = [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient" inManagedObjectContext:self.managedObjectContext];
+    newIngredient1.name = self.ingredient1.text;
+    RecipeIngredient *newIngredient2 = [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient" inManagedObjectContext:self.managedObjectContext];
+    newIngredient2.name = self.ingredient2.text;
+    NSSet *ingredientSet = [NSSet setWithObjects:newIngredient1, newIngredient2, nil];
+    DLog(@"newRecipe is: %@", [newRecipe class]);
+    [newRecipe addIngredients:ingredientSet];
     Type *newType = [NSEntityDescription insertNewObjectForEntityForName:@"Type" inManagedObjectContext:self.managedObjectContext];
+    DLog(@"Type: %@", newType);
     newType.name = self.typeTextField.text;
-    [newType addRecipesTypeObject:newRecipe];
+    [newType addRecipesObject:newRecipe];
+//     newRecipe.type = newType;
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     JALCoreDataStack *coreDataStack = appDelegate.coreDataStack;
     [coreDataStack saveContext:YES];

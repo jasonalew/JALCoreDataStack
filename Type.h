@@ -2,7 +2,7 @@
 //  Type.h
 //  CoreDataStack
 //
-//  Created by Jason Lew on 8/21/15.
+//  Created by Jason Lew on 8/22/15.
 //  Copyright (c) 2015 Jason Lew. All rights reserved.
 //
 
@@ -14,14 +14,14 @@
 @interface Type : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *recipesType;
+@property (nonatomic, retain) NSSet *recipes;
 @end
 
 @interface Type (CoreDataGeneratedAccessors)
 
-- (void)addRecipesTypeObject:(Recipe *)value;
-- (void)removeRecipesTypeObject:(Recipe *)value;
-- (void)addRecipesType:(NSSet *)values;
-- (void)removeRecipesType:(NSSet *)values;
+- (void)addRecipesObject:(Recipe *)value;
+- (void)removeRecipesObject:(Recipe *)value;
+- (void)addRecipes:(NSSet *)values;
+- (void)removeRecipes:(NSSet *)values;
 
 @end

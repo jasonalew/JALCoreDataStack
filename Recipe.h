@@ -2,14 +2,14 @@
 //  Recipe.h
 //  CoreDataStack
 //
-//  Created by Jason Lew on 8/21/15.
+//  Created by Jason Lew on 8/22/15.
 //  Copyright (c) 2015 Jason Lew. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class NSManagedObject, RecipeIngredient;
+@class RecipeImage, RecipeIngredient, Type;
 
 @interface Recipe : NSManagedObject
 
@@ -17,16 +17,16 @@
 @property (nonatomic, retain) NSData * imageThumb;
 @property (nonatomic, retain) NSString * instructions;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSManagedObject *image;
-@property (nonatomic, retain) NSSet *ingredient;
-@property (nonatomic, retain) NSManagedObject *type;
+@property (nonatomic, retain) RecipeImage *image;
+@property (nonatomic, retain) NSSet *ingredients;
+@property (nonatomic, retain) Type *type;
 @end
 
 @interface Recipe (CoreDataGeneratedAccessors)
 
-- (void)addIngredientObject:(RecipeIngredient *)value;
-- (void)removeIngredientObject:(RecipeIngredient *)value;
-- (void)addIngredient:(NSSet *)values;
-- (void)removeIngredient:(NSSet *)values;
+- (void)addIngredientsObject:(RecipeIngredient *)value;
+- (void)removeIngredientsObject:(RecipeIngredient *)value;
+- (void)addIngredients:(NSSet *)values;
+- (void)removeIngredients:(NSSet *)values;
 
 @end

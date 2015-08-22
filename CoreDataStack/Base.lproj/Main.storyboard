@@ -107,11 +107,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WYB-X7-tME">
+                                <rect key="frame" x="16" y="220" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ingredient" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1g-d2-wgL">
+                                <rect key="frame" x="16" y="258" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b1g-d2-wgL" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="7oa-mh-SXH"/>
+                            <constraint firstItem="WYB-X7-tME" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="GZK-hb-7gM"/>
+                            <constraint firstItem="WYB-X7-tME" firstAttribute="leading" secondItem="BT5-we-CPh" secondAttribute="leadingMargin" id="Gc0-ZP-EFR"/>
+                            <constraint firstItem="WYB-X7-tME" firstAttribute="top" secondItem="bG8-Yw-Qej" secondAttribute="bottom" constant="8" id="Ixh-Tg-23V"/>
                             <constraint firstItem="RjA-RA-yUK" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="Lcm-sd-TxY"/>
                             <constraint firstItem="RjA-RA-yUK" firstAttribute="top" secondItem="4p6-4b-7od" secondAttribute="bottom" constant="8" id="SvW-mg-BH7"/>
+                            <constraint firstItem="b1g-d2-wgL" firstAttribute="top" secondItem="WYB-X7-tME" secondAttribute="bottom" constant="8" id="UDz-7Z-ywU"/>
                             <constraint firstItem="bG8-Yw-Qej" firstAttribute="top" secondItem="eQf-l6-rIp" secondAttribute="bottom" constant="8" id="Wnr-wJ-4OP"/>
                             <constraint firstItem="RjA-RA-yUK" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="YNS-j9-HoU"/>
                             <constraint firstItem="aXx-YY-NKe" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="ZF5-Rk-fJx"/>
@@ -120,11 +135,14 @@
                             <constraint firstItem="bG8-Yw-Qej" firstAttribute="leading" secondItem="BT5-we-CPh" secondAttribute="leadingMargin" id="jaz-GT-BoD"/>
                             <constraint firstItem="aXx-YY-NKe" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="nBx-bT-ZwL"/>
                             <constraint firstItem="4p6-4b-7od" firstAttribute="top" secondItem="eQf-l6-rIp" secondAttribute="bottom" constant="8" id="sGL-hN-NEP"/>
+                            <constraint firstItem="b1g-d2-wgL" firstAttribute="leading" secondItem="BT5-we-CPh" secondAttribute="leadingMargin" id="tBX-e9-sMr"/>
                             <constraint firstItem="4p6-4b-7od" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="xHW-IT-7bV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="descriptionTextField" destination="aXx-YY-NKe" id="ETL-Sj-si3"/>
+                        <outlet property="ingredient1" destination="WYB-X7-tME" id="EL5-t7-BuH"/>
+                        <outlet property="ingredient2" destination="b1g-d2-wgL" id="rAq-IC-j8m"/>
                         <outlet property="mainImage" destination="bG8-Yw-Qej" id="ZQR-l1-tn9"/>
                         <outlet property="nameTextField" destination="4p6-4b-7od" id="t1M-XX-PNs"/>
                         <outlet property="typeTextField" destination="RjA-RA-yUK" id="KrK-BY-xLY"/>
