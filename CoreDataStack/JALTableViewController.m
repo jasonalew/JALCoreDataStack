@@ -8,6 +8,7 @@
 
 #import "JALTableViewController.h"
 #import "JALTableViewCell.h"
+#import "JALDetailViewController.h"
 
 @interface JALTableViewController ()<NSFetchedResultsControllerDelegate>
 
@@ -32,6 +33,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)addRecipe:(id)sender {
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    JALDetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailVCID"];
+//    [self presentViewController:detailVC animated:YES completion:nil];
+    [self performSegueWithIdentifier:@"recipeDetailSegue" sender:sender];
+}
 
 #pragma mark - Table view data source
 
@@ -49,15 +56,21 @@
     return [sectionInfo numberOfObjects];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
+    JALTableViewCell *cell = (JALTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[JALTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RecipeCell"];
+//        cell.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 88);
+    }
     // Configure the cell...
+    NSManagedObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.recipeName.text = [obj valueForKey:@"name"];
+    cell.recipeDescription.text = [obj valueForKey:@"description"];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -129,6 +142,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"recipeDetailSegue"]) {
+        if ([sender isKindOfClass:[UITableViewCell class]]) {
+            DLog(@"From cell");
+        }
+    }
 }
 
 

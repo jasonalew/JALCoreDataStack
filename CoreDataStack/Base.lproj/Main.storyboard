@@ -52,7 +52,7 @@
                                     <outlet property="imageThumb" destination="8Qw-yC-kla" id="grL-al-h9y"/>
                                     <outlet property="recipeDescription" destination="qBg-Kl-y7K" id="gHe-hx-2Js"/>
                                     <outlet property="recipeName" destination="jmC-GW-B25" id="sn8-uM-J99"/>
-                                    <segue destination="InB-7i-Oxv" kind="showDetail" identifier="recipeDetailSegue" trigger="accessoryAction" id="hXc-Wm-5Ne"/>
+                                    <segue destination="InB-7i-Oxv" kind="show" identifier="recipeDetailSegue" id="uxe-IV-V7d"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +61,13 @@
                             <outlet property="delegate" destination="gf1-wQ-QDI" id="PVm-Iy-azY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9cU-Ee-PtP"/>
+                    <navigationItem key="navigationItem" title="Recipes" id="9cU-Ee-PtP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CpG-FX-bwd">
+                            <connections>
+                                <action selector="addRecipe:" destination="gf1-wQ-QDI" id="JJi-CO-ODv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDe-UJ-fwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +76,7 @@
         <!--Instructions-->
         <scene sceneID="4K7-yH-8ra">
             <objects>
-                <viewController title="Instructions" id="InB-7i-Oxv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVCID" title="Instructions" id="InB-7i-Oxv" customClass="JALDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eQf-l6-rIp"/>
                         <viewControllerLayoutGuide type="bottom" id="dbU-pM-AdE"/>
@@ -78,8 +84,51 @@
                     <view key="view" contentMode="scaleToFill" id="BT5-we-CPh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-Yw-Qej">
+                                <rect key="frame" x="16" y="72" width="140" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="rKz-M9-0sM"/>
+                                    <constraint firstAttribute="width" constant="140" id="yFp-jD-hKt"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4p6-4b-7od">
+                                <rect key="frame" x="164" y="72" width="420" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RjA-RA-yUK">
+                                <rect key="frame" x="164" y="110" width="420" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aXx-YY-NKe">
+                                <rect key="frame" x="164" y="148" width="420" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RjA-RA-yUK" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="Lcm-sd-TxY"/>
+                            <constraint firstItem="RjA-RA-yUK" firstAttribute="top" secondItem="4p6-4b-7od" secondAttribute="bottom" constant="8" id="SvW-mg-BH7"/>
+                            <constraint firstItem="bG8-Yw-Qej" firstAttribute="top" secondItem="eQf-l6-rIp" secondAttribute="bottom" constant="8" id="Wnr-wJ-4OP"/>
+                            <constraint firstItem="RjA-RA-yUK" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="YNS-j9-HoU"/>
+                            <constraint firstItem="aXx-YY-NKe" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="ZF5-Rk-fJx"/>
+                            <constraint firstItem="4p6-4b-7od" firstAttribute="trailing" secondItem="BT5-we-CPh" secondAttribute="trailingMargin" id="fnw-PH-iVN"/>
+                            <constraint firstItem="aXx-YY-NKe" firstAttribute="top" secondItem="RjA-RA-yUK" secondAttribute="bottom" constant="8" id="j9W-Kw-Q3b"/>
+                            <constraint firstItem="bG8-Yw-Qej" firstAttribute="leading" secondItem="BT5-we-CPh" secondAttribute="leadingMargin" id="jaz-GT-BoD"/>
+                            <constraint firstItem="aXx-YY-NKe" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="nBx-bT-ZwL"/>
+                            <constraint firstItem="4p6-4b-7od" firstAttribute="top" secondItem="eQf-l6-rIp" secondAttribute="bottom" constant="8" id="sGL-hN-NEP"/>
+                            <constraint firstItem="4p6-4b-7od" firstAttribute="leading" secondItem="bG8-Yw-Qej" secondAttribute="trailing" constant="8" id="xHW-IT-7bV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="aXx-YY-NKe" id="ETL-Sj-si3"/>
+                        <outlet property="mainImage" destination="bG8-Yw-Qej" id="ZQR-l1-tn9"/>
+                        <outlet property="nameTextField" destination="4p6-4b-7od" id="t1M-XX-PNs"/>
+                        <outlet property="typeTextField" destination="RjA-RA-yUK" id="KrK-BY-xLY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tO-Io-idj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

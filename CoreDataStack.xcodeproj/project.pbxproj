@@ -21,6 +21,7 @@
 		55AA56161B87E86300D9DEF8 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56151B87E86300D9DEF8 /* Recipe.m */; };
 		55AA56191B87E86300D9DEF8 /* RecipeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56181B87E86300D9DEF8 /* RecipeImage.m */; };
 		55AA561C1B87E86300D9DEF8 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA561B1B87E86300D9DEF8 /* Type.m */; };
+		55AA56221B87F73500D9DEF8 /* JALDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,14 +54,16 @@
 		55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTableViewController.m; sourceTree = "<group>"; };
 		55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTableViewCell.h; sourceTree = "<group>"; };
 		55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTableViewCell.m; sourceTree = "<group>"; };
-		55AA56111B87E86200D9DEF8 /* RecipeIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeIngredient.h; path = CoreDataStack/RecipeIngredient.h; sourceTree = "<group>"; };
-		55AA56121B87E86200D9DEF8 /* RecipeIngredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeIngredient.m; path = CoreDataStack/RecipeIngredient.m; sourceTree = "<group>"; };
-		55AA56141B87E86300D9DEF8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipe.h; path = CoreDataStack/Recipe.h; sourceTree = "<group>"; };
-		55AA56151B87E86300D9DEF8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = CoreDataStack/Recipe.m; sourceTree = "<group>"; };
-		55AA56171B87E86300D9DEF8 /* RecipeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeImage.h; path = CoreDataStack/RecipeImage.h; sourceTree = "<group>"; };
-		55AA56181B87E86300D9DEF8 /* RecipeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeImage.m; path = CoreDataStack/RecipeImage.m; sourceTree = "<group>"; };
-		55AA561A1B87E86300D9DEF8 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = CoreDataStack/Type.h; sourceTree = "<group>"; };
-		55AA561B1B87E86300D9DEF8 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Type.m; path = CoreDataStack/Type.m; sourceTree = "<group>"; };
+		55AA56111B87E86200D9DEF8 /* RecipeIngredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeIngredient.h; sourceTree = "<group>"; };
+		55AA56121B87E86200D9DEF8 /* RecipeIngredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeIngredient.m; sourceTree = "<group>"; };
+		55AA56141B87E86300D9DEF8 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		55AA56151B87E86300D9DEF8 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
+		55AA56171B87E86300D9DEF8 /* RecipeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeImage.h; sourceTree = "<group>"; };
+		55AA56181B87E86300D9DEF8 /* RecipeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeImage.m; sourceTree = "<group>"; };
+		55AA561A1B87E86300D9DEF8 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		55AA561B1B87E86300D9DEF8 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		55AA56201B87F73500D9DEF8 /* JALDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALDetailViewController.h; sourceTree = "<group>"; };
+		55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,14 +87,6 @@
 		5568E6801B825E0300798D72 = {
 			isa = PBXGroup;
 			children = (
-				55AA561A1B87E86300D9DEF8 /* Type.h */,
-				55AA561B1B87E86300D9DEF8 /* Type.m */,
-				55AA56171B87E86300D9DEF8 /* RecipeImage.h */,
-				55AA56181B87E86300D9DEF8 /* RecipeImage.m */,
-				55AA56141B87E86300D9DEF8 /* Recipe.h */,
-				55AA56151B87E86300D9DEF8 /* Recipe.m */,
-				55AA56111B87E86200D9DEF8 /* RecipeIngredient.h */,
-				55AA56121B87E86200D9DEF8 /* RecipeIngredient.m */,
 				5568E68B1B825E0300798D72 /* CoreDataStack */,
 				5568E6A51B825E0400798D72 /* CoreDataStackTests */,
 				5568E68A1B825E0300798D72 /* Products */,
@@ -110,19 +105,15 @@
 		5568E68B1B825E0300798D72 /* CoreDataStack */ = {
 			isa = PBXGroup;
 			children = (
+				55AA561F1B87F07100D9DEF8 /* UI */,
+				55AA561E1B87F04E00D9DEF8 /* ViewControllers */,
+				55AA561D1B87F01900D9DEF8 /* CoreData */,
 				5568E6901B825E0300798D72 /* AppDelegate.h */,
 				5568E6911B825E0300798D72 /* AppDelegate.m */,
 				5568E6961B825E0300798D72 /* Main.storyboard */,
-				55AA560B1B87CE4600D9DEF8 /* JALTableViewController.h */,
-				55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */,
-				55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */,
-				55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */,
 				5568E6991B825E0300798D72 /* Images.xcassets */,
 				5568E69B1B825E0300798D72 /* LaunchScreen.xib */,
 				5568E68C1B825E0300798D72 /* Supporting Files */,
-				5568E6B21B825FD600798D72 /* JALCoreDataStack.h */,
-				5568E6B31B825FD600798D72 /* JALCoreDataStack.m */,
-				5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */,
 			);
 			path = CoreDataStack;
 			sourceTree = "<group>";
@@ -152,6 +143,44 @@
 				5568E6A71B825E0400798D72 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55AA561D1B87F01900D9DEF8 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5568E6B51B82601800798D72 /* CoreDataStack.xcdatamodeld */,
+				5568E6B21B825FD600798D72 /* JALCoreDataStack.h */,
+				5568E6B31B825FD600798D72 /* JALCoreDataStack.m */,
+				55AA561A1B87E86300D9DEF8 /* Type.h */,
+				55AA561B1B87E86300D9DEF8 /* Type.m */,
+				55AA56171B87E86300D9DEF8 /* RecipeImage.h */,
+				55AA56181B87E86300D9DEF8 /* RecipeImage.m */,
+				55AA56141B87E86300D9DEF8 /* Recipe.h */,
+				55AA56151B87E86300D9DEF8 /* Recipe.m */,
+				55AA56111B87E86200D9DEF8 /* RecipeIngredient.h */,
+				55AA56121B87E86200D9DEF8 /* RecipeIngredient.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		55AA561E1B87F04E00D9DEF8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				55AA560B1B87CE4600D9DEF8 /* JALTableViewController.h */,
+				55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */,
+				55AA56201B87F73500D9DEF8 /* JALDetailViewController.h */,
+				55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		55AA561F1B87F07100D9DEF8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */,
+				55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +287,7 @@
 				5568E6921B825E0300798D72 /* AppDelegate.m in Sources */,
 				55AA56191B87E86300D9DEF8 /* RecipeImage.m in Sources */,
 				55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */,
+				55AA56221B87F73500D9DEF8 /* JALDetailViewController.m in Sources */,
 				55AA560D1B87CE4600D9DEF8 /* JALTableViewController.m in Sources */,
 				55AA56161B87E86300D9DEF8 /* Recipe.m in Sources */,
 				55AA561C1B87E86300D9DEF8 /* Type.m in Sources */,
