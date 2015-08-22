@@ -12,5 +12,6 @@
 @interface JALDetailViewController : UIViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectID *managedObjectID;
 
 @end

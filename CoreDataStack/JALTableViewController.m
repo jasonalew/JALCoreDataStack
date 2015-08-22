@@ -26,11 +26,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    DLog(@"Managed object context: %@", self.managedObjectContext);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self performFetch];
     [self.tableView reloadData];
 }
 
@@ -66,7 +66,6 @@
     JALTableViewCell *cell = (JALTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"RecipeCell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[JALTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RecipeCell"];
-//        cell.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 88);
     }
     // Configure the cell...
     NSManagedObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -76,6 +75,10 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+    return [sectionInfo name];
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -118,9 +121,14 @@
         return _fetchedResultsController;
     }
     
+    [self performFetch];
+    
+    return _fetchedResultsController;
+}
+
+- (void)performFetch {
     // Get the recipes and order by name
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
-    
     
     fetchRequest.fetchBatchSize = 20;
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]initWithKey:@"type.name" ascending:YES];
@@ -128,7 +136,8 @@
     NSArray *sortDescriptorArray = @[sort, nameSort];
     fetchRequest.sortDescriptors = sortDescriptorArray;
     
-    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type.name" cacheName:@"Master"];
+    self.fetchedResultsController = nil;
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type.name" cacheName:nil];
     _fetchedResultsController = frc;
     _fetchedResultsController.delegate = self;
     
@@ -137,7 +146,6 @@
     if (error) {
         DLog(@"Unresolved error %@\n%@", error.localizedDescription, error.userInfo);
     }
-    return _fetchedResultsController;
 }
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
@@ -159,14 +167,13 @@
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    NSArray *newArray = [NSArray arrayWithObject:newIndexPath];
-    NSArray *oldArray = [NSArray arrayWithObject:indexPath];
+    
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:newArray withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:oldArray withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeUpdate:
         {
@@ -177,17 +184,17 @@
             break;
         }
         case NSFetchedResultsChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:oldArray withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView insertRowsAtIndexPaths:newArray withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         default:
             break;
     }
 }
 
-- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
-    return [NSString stringWithFormat:@"%@", sectionName];
-}
+//- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
+//    return [NSString stringWithFormat:@"%@", sectionName];
+//}
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
@@ -199,12 +206,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
     if ([segue.identifier isEqualToString:@"recipeDetailSegue"]) {
+        
+        // Pass the managed object context to the detailVC.
+        JALDetailViewController *detailVC = segue.destinationViewController;
+        detailVC.managedObjectContext = self.managedObjectContext;
+        
+        // If the segue is coming from an existing object at a table cell,
+        // pass the Recipe managedObjectID.
         if ([sender isKindOfClass:[UITableViewCell class]]) {
-            DLog(@"From cell");
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            NSManagedObjectID *objID = [[self.fetchedResultsController objectAtIndexPath:indexPath]objectID];
+            detailVC.managedObjectID = objID;
+            DLog(@"From cell with objID: %@", objID);
+            
         } else {
-            JALDetailViewController *detailVC = segue.destinationViewController;
-            detailVC.managedObjectContext = self.managedObjectContext;
+            
         }
         
         
