@@ -72,11 +72,16 @@
 
 - (void)addRecipe {
     self.recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe"
-                                                      inManagedObjectContext:self.managedObjectContext];
-    RecipeIngredient *newIngredient1 = [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient" inManagedObjectContext:self.managedObjectContext];
-    RecipeIngredient *newIngredient2 = [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient" inManagedObjectContext:self.managedObjectContext];
+                                                inManagedObjectContext:self.managedObjectContext];
+    RecipeIngredient *newIngredient1 =
+        [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient"
+                                      inManagedObjectContext:self.managedObjectContext];
+    RecipeIngredient *newIngredient2 =
+        [NSEntityDescription insertNewObjectForEntityForName:@"RecipeIngredient"
+                                      inManagedObjectContext:self.managedObjectContext];
     self.ingredients = [NSSet setWithObjects:newIngredient1, newIngredient2, nil];
-    self.type = [NSEntityDescription insertNewObjectForEntityForName:@"Type" inManagedObjectContext:self.managedObjectContext];
+    self.type = [NSEntityDescription insertNewObjectForEntityForName:@"Type"
+                                              inManagedObjectContext:self.managedObjectContext];
     self.recipe.type = self.type;
 }
 

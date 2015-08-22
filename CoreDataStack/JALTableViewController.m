@@ -39,9 +39,6 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)addRecipe:(id)sender {
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    JALDetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailVCID"];
-//    [self presentViewController:detailVC animated:YES completion:nil];
     [self performSegueWithIdentifier:@"recipeDetailSegue" sender:sender];
 }
 
@@ -80,40 +77,6 @@
     return [sectionInfo name];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Fetched Results Controller
 
 - (NSFetchedResultsController *)fetchedResultsController {
@@ -137,7 +100,11 @@
     fetchRequest.sortDescriptors = sortDescriptorArray;
     
     self.fetchedResultsController = nil;
-    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"type.name" cacheName:nil];
+    NSFetchedResultsController *frc =
+        [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                           managedObjectContext:self.managedObjectContext
+                                             sectionNameKeyPath:@"type.name"
+                                                      cacheName:nil];
     _fetchedResultsController = frc;
     _fetchedResultsController.delegate = self;
     
@@ -152,7 +119,11 @@
     [self.tableView beginUpdates];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+- (void)controller:(NSFetchedResultsController *)controller
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type {
+    
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
     switch (type) {
         case NSFetchedResultsChangeInsert:
@@ -166,7 +137,11 @@
     }
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath {
     
     switch (type) {
         case NSFetchedResultsChangeInsert:
@@ -191,10 +166,6 @@
             break;
     }
 }
-
-//- (NSString *)controller:(NSFetchedResultsController *)controller sectionIndexTitleForSectionName:(NSString *)sectionName {
-//    return [NSString stringWithFormat:@"%@", sectionName];
-//}
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
@@ -224,8 +195,6 @@
         } else {
             
         }
-        
-        
     }
 }
 

@@ -56,7 +56,8 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSArray *directoryArray = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+        NSArray *directoryArray = [fileManager URLsForDirectory:NSDocumentDirectory
+                                                      inDomains:NSUserDomainMask];
         NSURL *storeURL = [directoryArray lastObject];
         storeURL = [storeURL URLByAppendingPathComponent:@"Recipes.sqlite"];
         
@@ -64,7 +65,11 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
                                          NSInferMappingModelAutomaticallyOption: @YES};
         NSError *error = nil;
         NSPersistentStore *store = nil;
-        store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+        store = [psc addPersistentStoreWithType:NSSQLiteStoreType
+                                  configuration:nil
+                                            URL:storeURL
+                                        options:options
+                                          error:&error];
         
         if (!store) {
             DLog(@"Error adding persistent store to coordinator %@", error
