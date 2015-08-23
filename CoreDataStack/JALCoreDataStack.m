@@ -53,7 +53,8 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         NSArray *directoryArray = [fileManager URLsForDirectory:NSDocumentDirectory
                                                       inDomains:NSUserDomainMask];
         NSURL *storeURL = [directoryArray lastObject];
-        storeURL = [storeURL URLByAppendingPathComponent:@"Recipes.sqlite"];
+        NSString *storeString = [NSString stringWithFormat:@"%@.sqlite", model];
+        storeURL = [storeURL URLByAppendingPathComponent:storeString];
         
         // Don't set the URL is it's an in-memory store type
         if ([storeType isEqualToString:NSInMemoryStoreType]) {
