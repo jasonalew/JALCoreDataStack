@@ -190,11 +190,7 @@
         if ([sender isKindOfClass:[UITableViewCell class]]) {
             NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
             NSManagedObjectID *objID = [[self.fetchedResultsController objectAtIndexPath:indexPath]objectID];
-            detailVC.managedObjectID = objID;
-            DLog(@"From cell with objID: %@", objID);
-            
-        } else {
-            
+            detailVC.managedObjectID = objID;  
         }
     }
 }
