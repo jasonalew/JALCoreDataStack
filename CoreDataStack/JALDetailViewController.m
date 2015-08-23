@@ -101,9 +101,40 @@
     
     self.recipe.type.name = self.typeTextField.text;
 
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    JALCoreDataStack *coreDataStack = appDelegate.coreDataStack;
-    [coreDataStack saveContext:YES];
+    [self saveContext];
+}
+
+- (void)saveContext {
+    // Get the contexts so that we can save.
+    NSManagedObjectContext *moc = self.recipe.managedObjectContext;
+    NSManagedObjectContext *private = moc.parentContext;
+    
+    if (!moc) {
+        return;
+    }
+    
+    if (moc.hasChanges) {
+        [moc performBlockAndWait:^{
+            NSError *error = nil;
+            [moc save:&error];
+            if (error) {
+                DLog(@"Error saving MOC: %@\n%@", error.localizedDescription, error.userInfo);
+                
+            }
+        }];
+    }
+    
+    void (^savePrivate)(void) = ^{
+        NSError *error = nil;
+        [private save:&error];
+        if (error) {
+            DLog(@"Error saving MOC: %@\n%@", error.localizedDescription, error.userInfo);
+        }
+    };
+    
+    if (private.hasChanges) {
+        [private performBlock:savePrivate];
+    }
 }
 
 /*
