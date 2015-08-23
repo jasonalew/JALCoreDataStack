@@ -106,8 +106,10 @@
 
 - (void)saveContext {
     // Get the contexts so that we can save.
-    NSManagedObjectContext *moc = self.recipe.managedObjectContext;
-    NSManagedObjectContext *private = moc.parentContext;
+    NSManagedObjectContext *moc = nil;
+    moc = self.recipe.managedObjectContext;
+    NSManagedObjectContext *private = nil;
+    private = moc.parentContext;
     
     if (!moc) {
         return;

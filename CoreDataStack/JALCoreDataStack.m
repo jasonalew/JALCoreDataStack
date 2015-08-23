@@ -28,17 +28,21 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
     NSURL *modelURL = [[NSBundle mainBundle]URLForResource:model withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to find model URL");
     
-    NSManagedObjectModel *mom = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
+    NSManagedObjectModel *mom = nil;
+    mom = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
     NSAssert(mom, @"Failed to initialize model");
     
-    NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:mom];
+    NSPersistentStoreCoordinator *psc = nil;
+    psc = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:mom];
     NSAssert(psc, @"Failed to initialize persistent store coordinator");
     
     // Make sure the NSManagedObjectContext is initialized before the
     // NSPersistentStore is added to the coordinator.
+    _privateContext = nil;
     _privateContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSPrivateQueueConcurrencyType];
     _privateContext.persistentStoreCoordinator = psc;
     
+    _managedObjectContext = nil;
     _managedObjectContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
     // Instead of attaching and writing to the NSPersistentStoreCoordinator,
     // saves on the main context will be pushed to the private context.
@@ -52,7 +56,8 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSArray *directoryArray = [fileManager URLsForDirectory:NSDocumentDirectory
                                                       inDomains:NSUserDomainMask];
-        NSURL *storeURL = [directoryArray lastObject];
+        NSURL *storeURL = nil;
+        storeURL = [directoryArray lastObject];
         NSString *storeString = [NSString stringWithFormat:@"%@.sqlite", model];
         storeURL = [storeURL URLByAppendingPathComponent:storeString];
         
