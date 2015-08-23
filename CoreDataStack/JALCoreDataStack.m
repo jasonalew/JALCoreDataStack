@@ -17,30 +17,15 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
 
 @implementation JALCoreDataStack
 
-- (instancetype)init {
+// Designated initializer
+- (instancetype)initWithStoreType:(NSString *)storeType
+                            model:(NSString *)model
+                          options:(NSDictionary *)options {
     self = [super init];
     if (!self) {
         return nil;
     }
-    
-    [self initializeCoreDataStackWithStoreType:NSSQLiteStoreType];
-
-    return self;
-}
-
-- (instancetype)initWithInMemoryStore {
-    self = [super init];
-    if (!self) {
-        return nil;
-    }
-    
-    [self initializeCoreDataStackWithStoreType:NSInMemoryStoreType];
-    
-    return self;
-}
-
-- (void)initializeCoreDataStackWithStoreType:(NSString *)storeType {
-    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:@"Recipes" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle]URLForResource:model withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to find model URL");
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc]initWithContentsOfURL:modelURL];
@@ -70,8 +55,11 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
         NSURL *storeURL = [directoryArray lastObject];
         storeURL = [storeURL URLByAppendingPathComponent:@"Recipes.sqlite"];
         
-        NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @YES,
-                                         NSInferMappingModelAutomaticallyOption: @YES};
+        // Don't set the URL is it's an in-memory store type
+        if ([storeType isEqualToString:NSInMemoryStoreType]) {
+            storeURL = nil;
+        }
+        
         NSError *error = nil;
         NSPersistentStore *store = nil;
         store = [psc addPersistentStoreWithType:storeType
@@ -81,8 +69,7 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
                                           error:&error];
         
         if (!store) {
-            DLog(@"Error adding persistent store to coordinator %@", error
-                                                                    .localizedDescription);
+            DLog(@"Error adding persistent store to coordinator %@", error.localizedDescription);
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -90,6 +77,7 @@ NSString *const kContextInitializedKey = @"contextInitializedKey";
             [self contextInitialized];
         });
     });
+    return self;
 }
 
 - (void)contextInitialized {

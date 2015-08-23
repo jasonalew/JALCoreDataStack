@@ -25,7 +25,9 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    JALCoreDataStack *coreDataStack = [[JALCoreDataStack alloc]initWithInMemoryStore];
+    JALCoreDataStack *coreDataStack = [[JALCoreDataStack alloc]initWithStoreType:NSInMemoryStoreType
+                                                                           model:@"Recipes"
+                                                                         options:nil];
     self.managedObjectContext = coreDataStack.managedObjectContext;
     self.privateContext = coreDataStack.privateContext;
 }

@@ -16,7 +16,9 @@ extern NSString *const kContextInitializedKey;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSManagedObjectContext *privateContext;
 
-- (instancetype)initWithInMemoryStore;
+- (instancetype)initWithStoreType:(NSString *)storeType
+                            model:(NSString *)model
+                          options:(NSDictionary *)options;
 - (void)saveContext:(BOOL)wait;
 
 @end
