@@ -19,7 +19,7 @@
         self.layer.cornerRadius = 30;
         self.layer.masksToBounds = YES;
         CGFloat randomFloat = arc4random_uniform(100);
-        UIColor *bkgColor = [UIColor colorWithHue:randomFloat / 100 saturation:0.7 brightness:0.9 alpha:1.0];
+        UIColor *bkgColor = [UIColor colorWithHue:randomFloat / 100 saturation:0.6 brightness:0.9 alpha:1.0];
         self.layer.backgroundColor = bkgColor.CGColor;
     }
     return self;
