@@ -14,6 +14,7 @@
 		5568E69D1B825E0300798D72 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5568E69B1B825E0300798D72 /* LaunchScreen.xib */; };
 		5568E6A91B825E0400798D72 /* CoreDataStackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6A81B825E0400798D72 /* CoreDataStackTests.m */; };
 		5568E6B41B825FD600798D72 /* JALCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 5568E6B31B825FD600798D72 /* JALCoreDataStack.m */; };
+		559993ED1B8D40EC00FCBEA1 /* JALRoundedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 559993EC1B8D40EC00FCBEA1 /* JALRoundedView.m */; };
 		55AA560D1B87CE4600D9DEF8 /* JALTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */; };
 		55AA56101B87CE6100D9DEF8 /* JALTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */; };
 		55AA56221B87F73500D9DEF8 /* JALDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA56211B87F73500D9DEF8 /* JALDetailViewController.m */; };
@@ -54,6 +55,8 @@
 		5568E6B21B825FD600798D72 /* JALCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALCoreDataStack.h; sourceTree = "<group>"; };
 		5568E6B31B825FD600798D72 /* JALCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALCoreDataStack.m; sourceTree = "<group>"; };
 		5568E6B91B83CE6F00798D72 /* JALLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JALLog.h; sourceTree = "<group>"; };
+		559993EB1B8D40EC00FCBEA1 /* JALRoundedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALRoundedView.h; sourceTree = "<group>"; };
+		559993EC1B8D40EC00FCBEA1 /* JALRoundedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALRoundedView.m; sourceTree = "<group>"; };
 		55AA560B1B87CE4600D9DEF8 /* JALTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTableViewController.h; sourceTree = "<group>"; };
 		55AA560C1B87CE4600D9DEF8 /* JALTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTableViewController.m; sourceTree = "<group>"; };
 		55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTableViewCell.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 			children = (
 				55AA560E1B87CE6100D9DEF8 /* JALTableViewCell.h */,
 				55AA560F1B87CE6100D9DEF8 /* JALTableViewCell.m */,
+				559993EB1B8D40EC00FCBEA1 /* JALRoundedView.h */,
+				559993EC1B8D40EC00FCBEA1 /* JALRoundedView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				5568E68F1B825E0300798D72 /* main.m in Sources */,
 				55AA566B1B893E3F00D9DEF8 /* RecipeIngredient.m in Sources */,
 				55AA564D1B88E67100D9DEF8 /* Recipes.xcdatamodeld in Sources */,
+				559993ED1B8D40EC00FCBEA1 /* JALRoundedView.m in Sources */,
 				55AA566D1B893E3F00D9DEF8 /* Type.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

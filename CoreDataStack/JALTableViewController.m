@@ -69,14 +69,16 @@
     NSManagedObject *obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.recipeName.text = [obj valueForKey:@"name"];
     cell.recipeDescription.text = [obj valueForKey:@"desc"];
+    cell.clipsToBounds = NO;
+    cell.layer.zPosition = indexPath.section *1000 + indexPath.item;
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
-    return [sectionInfo name];
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    id<NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections]objectAtIndex:section];
+//    return [sectionInfo name];
+//}
 
 #pragma mark - Fetched Results Controller
 
